@@ -1,40 +1,66 @@
-// script.js – with dynamic modal for vehicle hire
+// script.js – with fixed mobile menu (overlay) and real map
 
 (function() {
-  // ---------- Dark mode ----------
+  // ---------- Dark mode sync ----------
   const root = document.documentElement;
-  const toggles = ['darkToggle', 'darkToggleMobile'];
+  function setDarkIcon(btn, isDark) {
+    if (btn) btn.innerHTML = isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+  }
+  const toggles = ['darkToggle', 'darkToggleMobile', 'mobileDarkToggle'];
   toggles.forEach(id => {
     const btn = document.getElementById(id);
     if (btn) {
       btn.addEventListener('click', () => {
         root.classList.toggle('dark');
-        btn.innerHTML = root.classList.contains('dark') ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+        const isDark = root.classList.contains('dark');
+        toggles.forEach(tid => {
+          const b = document.getElementById(tid);
+          if (b) setDarkIcon(b, isDark);
+        });
       });
     }
   });
 
-  // ---------- Mobile menu ----------
+  // ---------- Mobile Menu Overlay (fixed) ----------
+  const overlay = document.getElementById('mobileMenuOverlay');
+  const panel = document.getElementById('mobileMenuPanel');
   const hamburger = document.getElementById('hamburgerBtn');
-  const mobileMenu = document.getElementById('mobileMenu');
-  if (hamburger && mobileMenu) {
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('open');
-      mobileMenu.classList.toggle('hidden');
-    });
-    mobileMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.add('hidden');
-        hamburger.classList.remove('open');
-      });
-    });
+  const closeBtn = document.getElementById('closeMobileMenu');
+
+  function openMenu() {
+    overlay.classList.remove('hidden');
+    // small delay to trigger transition
+    setTimeout(() => {
+      overlay.classList.add('show'); // for opacity
+      panel.style.transform = 'translateX(0)';
+    }, 10);
+    document.body.style.overflow = 'hidden';
   }
+  function closeMenu() {
+    panel.style.transform = 'translateX(100%)';
+    overlay.classList.remove('show');
+    setTimeout(() => {
+      overlay.classList.add('hidden');
+      document.body.style.overflow = '';
+    }, 300);
+  }
+
+  if (hamburger) hamburger.addEventListener('click', openMenu);
+  if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+  overlay?.addEventListener('click', (e) => {
+    if (e.target === overlay) closeMenu();
+  });
+
+  // close menu on link click
+  document.querySelectorAll('.mobile-link').forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
 
   // ---------- Scroll animations ----------
   const faders = document.querySelectorAll('.fade-up');
   const appearOnScroll = new IntersectionObserver((entries) => {
     entries.forEach(e => e.target.classList.toggle('show', e.isIntersecting));
-  }, { threshold: 0.15 });
+  }, { threshold: 0.15, rootMargin: '0px 0px -30px 0px' });
   faders.forEach(f => appearOnScroll.observe(f));
 
   // ---------- Tracking simulation ----------
@@ -44,7 +70,7 @@
   if (trackBtn && trackResult) {
     trackBtn.addEventListener('click', () => {
       if (trackInput.value.trim().length > 3) {
-        trackResult.innerHTML = `<div>Shipment ${escapeHTML(trackInput.value)} in transit</div>`;
+        trackResult.innerHTML = `<div class="p-4">Shipment ${escapeHTML(trackInput.value)} <span class="text-[#34A853]">In transit</span></div>`;
         trackResult.classList.remove('hidden');
       } else {
         trackResult.classList.add('hidden');
@@ -59,7 +85,7 @@
     });
   }
 
-  // ---------- FLEET MODAL ----------
+  // ---------- FLEET MODAL (unchanged) ----------
   const modal = document.getElementById('hireModal');
   const modalImage = document.getElementById('modalImage');
   const modalName = document.getElementById('modalVehicleName');
@@ -70,11 +96,10 @@
   const modalMake = document.getElementById('modalMake');
   const modalModel = document.getElementById('modalModel');
   const modalYear = document.getElementById('modalYear');
-  const closeBtn = document.querySelector('.modal-close');
+  const closeModalBtn = document.querySelector('.modal-close');
   const submitBooking = document.getElementById('submitBooking');
   const bookingSuccess = document.getElementById('bookingSuccess');
 
-  // data for each vehicle stored in data-vehicle attribute
   document.querySelectorAll('.fleet-card .btn-fleet').forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
@@ -94,7 +119,6 @@
 
   function populateModal(v) {
     modalName.innerText = v.name;
-    // image placeholder (dynamic based on vehicle image key)
     modalImage.src = `https://placehold.co/600x300/1A73E8/white?text=${encodeURIComponent(v.image || v.name)}`;
     modalPrice.innerText = `KSh ${v.price}/day`.replace('/day', v.name.includes('truck') ? '/trip' : '/day');
     modalPriceVAT.innerText = `KSh ${v.priceVAT}`;
@@ -105,7 +129,6 @@
     modalYear.innerText = v.year || '2022';
   }
 
-  // close modal
   function closeModal() {
     modal.classList.add('hidden');
     // reset form
@@ -120,12 +143,11 @@
     bookingSuccess.classList.add('hidden');
   }
 
-  if (closeBtn) closeBtn.addEventListener('click', closeModal);
-  modal.addEventListener('click', (e) => {
+  if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
+  modal?.addEventListener('click', (e) => {
     if (e.target === modal) closeModal();
   });
 
-  // booking validation & success
   if (submitBooking) {
     submitBooking.addEventListener('click', (e) => {
       e.preventDefault();
@@ -153,7 +175,7 @@
     });
   }
 
-  // smooth scroll for internal links
+  // smooth scroll for all anchor links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
       const href = this.getAttribute('href');
@@ -167,5 +189,5 @@
     });
   });
 
-  console.log('Deks Transporter: modal ready, WhatsApp button removed.');
+  console.log('Deks Transporter: mobile menu fixed, real map integrated.');
 })();
