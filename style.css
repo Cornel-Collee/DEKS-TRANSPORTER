@@ -1,4 +1,4 @@
-/* styles.css - including modal styles */
+/* styles.css - including mobile menu overlay and map fixes */
 
 :root {
   --primary: #1A73E8;
@@ -30,6 +30,7 @@ body {
   font-family: 'Inter', system-ui, sans-serif;
   background: var(--bg-main);
   color: var(--text-primary);
+  -webkit-tap-highlight-color: transparent;
 }
 
 .glass-nav {
@@ -49,6 +50,7 @@ body {
   padding: 1.5rem;
 }
 
+/* Fleet cards */
 .fleet-card {
   background: var(--surface);
   border-radius: 1.5rem;
@@ -112,23 +114,47 @@ body {
   box-shadow: 0 4px 6px -2px rgba(26,115,232,0.3);
   display: inline-block;
   text-align: center;
+  cursor: pointer;
 }
 .btn-primary:hover {
   background: var(--primary-dark);
   transform: scale(1.02);
 }
 
+/* Hamburger icon */
 .hamburger-line {
-  width: 24px;
-  height: 2px;
+  width: 26px;
+  height: 2.5px;
   background: var(--text-primary);
   margin: 5px 0;
   transition: 0.3s;
+  border-radius: 2px;
 }
 .open .hamburger-line:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
 .open .hamburger-line:nth-child(2) { opacity: 0; }
-.open .hamburger-line:nth-child(3) { transform: rotate(-45deg) translate(7px,-6px); }
+.open .hamburger-line:nth-child(3) { transform: rotate(-45deg) translate(7px,-8px); }
 
+/* Mobile overlay & panel */
+#mobileMenuOverlay {
+  transition: opacity 0.3s ease;
+}
+#mobileMenuOverlay:not(.hidden) {
+  display: block;
+}
+#mobileMenuPanel {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+#mobileMenuOverlay:not(.hidden) #mobileMenuPanel {
+  transform: translateX(0);
+}
+
+.mobile-link {
+  display: block;
+  font-weight: 500;
+  padding: 0.75rem 0;
+}
+
+/* fade-up animation */
 .fade-up {
   opacity: 0;
   transform: translateY(20px);
@@ -146,13 +172,14 @@ input, select, textarea {
   border-radius: 0.75rem;
   padding: 0.75rem;
   width: 100%;
+  font-size: 16px; /* prevents zoom on mobile */
 }
 input:focus {
   outline: 2px solid var(--primary);
   outline-offset: 2px;
 }
 
-/* modal overlay & content */
+/* modal styles */
 .modal-overlay {
   position: fixed;
   top: 0; left: 0; width: 100%; height: 100%;
@@ -162,13 +189,7 @@ input:focus {
   align-items: center;
   justify-content: center;
   z-index: 1000;
-  opacity: 0;
-  pointer-events: none;
   transition: opacity 0.2s ease;
-}
-.modal-overlay:not(.hidden) {
-  opacity: 1;
-  pointer-events: auto;
 }
 .modal-overlay.hidden {
   display: none;
@@ -193,14 +214,12 @@ input:focus {
   top: 1rem; right: 1rem;
   font-size: 2rem;
   line-height: 1;
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: var(--text-primary);
-  z-index: 10;
-  width: 40px; height: 40px;
-  border-radius: 50%;
   background: rgba(255,255,255,0.8);
+  border: none;
+  border-radius: 50%;
+  width: 40px; height: 40px;
+  cursor: pointer;
+  z-index: 10;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -208,4 +227,11 @@ input:focus {
 .dark .modal-close {
   background: rgba(0,0,0,0.5);
   color: white;
+}
+
+/* map iframe responsive */
+iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 250px;
 }
