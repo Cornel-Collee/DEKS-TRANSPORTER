@@ -1,0 +1,211 @@
+/* styles.css - including modal styles */
+
+:root {
+  --primary: #1A73E8;
+  --primary-dark: #0D47A1;
+  --error: #EA4335;
+  --warning: #FBBC04;
+  --success: #34A853;
+  --bg-main: #F8F9FA;
+  --surface: #FFFFFF;
+  --text-primary: #202124;
+  --text-secondary: #5F6368;
+  --border-light: #dadce0;
+}
+
+.dark {
+  --bg-main: #202124;
+  --surface: #303134;
+  --text-primary: #e8eaed;
+  --text-secondary: #9aa0a6;
+  --border-light: #5f6368;
+}
+
+* {
+  transition: background-color 0.2s ease, border-color 0.2s, transform 0.2s;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--bg-main);
+  color: var(--text-primary);
+}
+
+.glass-nav {
+  backdrop-filter: blur(12px);
+  background: rgba(255,255,255,0.7);
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+.dark .glass-nav {
+  background: rgba(48,49,52,0.8);
+  border-bottom-color: #3c4043;
+}
+
+.card {
+  background: var(--surface);
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.04);
+  padding: 1.5rem;
+}
+
+.fleet-card {
+  background: var(--surface);
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  transition: all 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid transparent;
+}
+.fleet-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 25px 30px -10px rgba(26,115,232,0.15);
+  border-color: var(--primary);
+}
+.fleet-card img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+}
+.fleet-card > div {
+  padding: 1rem;
+}
+.fleet-card h4 {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+.fuel-badge {
+  background: rgba(251,188,4,0.15);
+  color: #b0600a;
+  font-size: 0.7rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+  font-weight: 600;
+}
+.dark .fuel-badge {
+  background: rgba(251,188,4,0.3);
+  color: #fdd663;
+}
+.btn-fleet {
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 40px;
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  width: 100%;
+  margin-top: 0.75rem;
+  cursor: pointer;
+}
+.btn-fleet:hover {
+  background: var(--primary-dark);
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 500;
+  box-shadow: 0 4px 6px -2px rgba(26,115,232,0.3);
+  display: inline-block;
+  text-align: center;
+}
+.btn-primary:hover {
+  background: var(--primary-dark);
+  transform: scale(1.02);
+}
+
+.hamburger-line {
+  width: 24px;
+  height: 2px;
+  background: var(--text-primary);
+  margin: 5px 0;
+  transition: 0.3s;
+}
+.open .hamburger-line:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
+.open .hamburger-line:nth-child(2) { opacity: 0; }
+.open .hamburger-line:nth-child(3) { transform: rotate(-45deg) translate(7px,-6px); }
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-up.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+input, select, textarea {
+  background: var(--surface);
+  border: 1px solid var(--border-light);
+  color: var(--text-primary);
+  border-radius: 0.75rem;
+  padding: 0.75rem;
+  width: 100%;
+}
+input:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* modal overlay & content */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+.modal-overlay:not(.hidden) {
+  opacity: 1;
+  pointer-events: auto;
+}
+.modal-overlay.hidden {
+  display: none;
+}
+.modal-content {
+  position: relative;
+  background: var(--surface);
+  border-radius: 2rem;
+  max-width: 700px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+  animation: modalPop 0.25s;
+}
+@keyframes modalPop {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+.modal-close {
+  position: absolute;
+  top: 1rem; right: 1rem;
+  font-size: 2rem;
+  line-height: 1;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-primary);
+  z-index: 10;
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.dark .modal-close {
+  background: rgba(0,0,0,0.5);
+  color: white;
+}

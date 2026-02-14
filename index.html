@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deks Transporter · Premium Logistics Kenya</title>
+  <meta name="description" content="Reliable transport & logistics in Wajir, Kenya. Road freight, warehousing, cross-border, and modern fleet: Hilux, Land Cruiser, trucks. Get a quote.">
+  <meta property="og:title" content="Deks Transporter & General Services">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.deks.co.ke">
+  <meta property="og:image" content="assets/og-image.jpg">
+  <link rel="icon" type="image/png" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%231A73E8'/%3E%3Ctext x='20' y='68' fill='white' font-size='70' font-family='Arial'%3ED%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="antialiased">
+  <!-- Sticky navigation -->
+  <nav class="sticky top-0 z-50 glass-nav py-3 px-4 md:px-8 flex flex-wrap items-center justify-between">
+    <div class="flex items-center gap-4">
+      <div class="text-2xl font-bold" style="color: var(--primary);">DEKS<span class="text-sm font-light text-secondary">🇰🇪</span></div>
+      <div class="hidden lg:flex items-center gap-2 text-sm bg-surface/80 rounded-full px-4 py-1.5 shadow-sm">
+        <i class="fas fa-phone-alt text-[#1A73E8]"></i><a href="tel:+254726434503" class="hover:underline">+254 726 434 503</a>
+        <span class="w-px h-4 bg-gray-300 mx-2"></span>
+        <i class="fab fa-whatsapp text-[#34A853]"></i><a href="https://wa.me/254726434503" target="_blank" class="hover:underline">WhatsApp</a>
+      </div>
+    </div>
+    <div class="hidden md:flex space-x-6 items-center text-sm font-medium">
+      <a href="#home" class="nav-link">Home</a>
+      <a href="#about" class="nav-link">About</a>
+      <a href="#services" class="nav-link">Services</a>
+      <a href="#fleet" class="nav-link">Fleet</a>
+      <a href="#tracking" class="nav-link">Tracking</a>
+      <a href="#contact" class="nav-link">Contact</a>
+      <a href="#quote" class="btn-primary text-sm">Get quote</a>
+      <button id="darkToggle" class="ml-2 p-2 rounded-full bg-surface shadow-sm" aria-label="dark mode toggle"><i class="fas fa-moon"></i></button>
+    </div>
+    <div class="flex md:hidden items-center gap-2">
+      <a href="tel:+254726434503" class="p-2 bg-surface rounded-full shadow-sm"><i class="fas fa-phone-alt text-[#1A73E8]"></i></a>
+      <a href="https://wa.me/254726434503" target="_blank" class="p-2 bg-surface rounded-full shadow-sm"><i class="fab fa-whatsapp text-[#34A853]"></i></a>
+      <button id="darkToggleMobile" class="p-2 rounded-full bg-surface shadow-sm"><i class="fas fa-moon"></i></button>
+      <button id="hamburgerBtn" class="focus:outline-none p-1" aria-label="menu">
+        <div class="hamburger-line"></div><div class="hamburger-line"></div><div class="hamburger-line"></div>
+      </button>
+    </div>
+    <div id="mobileMenu" class="hidden absolute top-16 left-0 w-full bg-surface shadow-xl p-6 flex flex-col space-y-4 md:hidden border-t">
+      <a href="#home" class="py-2">Home</a><a href="#about" class="py-2">About</a><a href="#services" class="py-2">Services</a>
+      <a href="#fleet" class="py-2">Fleet</a><a href="#tracking" class="py-2">Tracking</a><a href="#contact" class="py-2">Contact</a>
+      <a href="#quote" class="btn-primary text-center">Get quote</a>
+    </div>
+  </nav>
+
+  <!-- floating WhatsApp button (REMOVED as requested) - intentionally omitted -->
+
+  <main class="max-w-7xl mx-auto px-4 md:px-6 space-y-20 py-8">
+    <!-- HOME (short) -->
+    <section id="home" class="scroll-mt-20 fade-up">
+      <div class="relative rounded-3xl overflow-hidden min-h-[70vh] flex items-center" style="background: linear-gradient(110deg, #0b2b5c 0%, #1A73E8 100%);">
+        <div class="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1601584115198-56e5e6a9b3b3?w=1200')] bg-cover bg-center mix-blend-overlay"></div>
+        <div class="relative z-10 p-8 md:p-16 text-white max-w-2xl">
+          <h1 class="text-4xl md:text-6xl font-bold leading-tight">Deks Transporter & General Service Limited</h1>
+          <p class="text-xl mt-4 opacity-90">Wajir to the world — road freight, cross-border, modern fleet.</p>
+          <div class="flex flex-wrap gap-4 mt-8">
+            <a href="#quote" class="bg-white text-[#1A73E8] px-8 py-3 rounded-full font-semibold shadow-lg hover:bg-gray-100">Get Quote</a>
+            <a href="#contact" class="border-2 border-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-[#1A73E8]">Contact Us</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About, Services (condensed) -->
+    <section id="about" class="scroll-mt-20 fade-up">
+      <h2 class="text-3xl font-bold mb-8">About Deks</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="card col-span-2"><span class="text-secondary">Headquartered in Wajir, Kenya — we bridge distances with integrity.</span>
+          <p class="mt-4">Founded in 2002, Deks Transporter & General Services Limited has a fleet of 80+ trucks and 50+ modern vehicles, offering reliable transport across East Africa.</p>
+        </div>
+        <div class="card"><i class="fas fa-users text-3xl text-[#1A73E8]"></i><h3 class="font-bold mt-2">Leadership</h3><p class="text-sm">Dekow Hassan Jibril</p></div>
+      </div>
+    </section>
+
+    <!-- SERVICES (brief) -->
+    <section id="services" class="scroll-mt-20 fade-up">
+      <h2 class="text-3xl font-bold mb-6">Our Logistics Services</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="card group"> <i class="fas fa-truck text-[#1A73E8] text-3xl"></i> <h3 class="font-bold text-xl mt-2">Road Transport</h3> <p class="text-secondary text-sm">Bulk cargo, FTL across Kenya.</p> </div>
+        <div class="card"> <i class="fas fa-warehouse text-[#1A73E8] text-3xl"></i> <h3 class="font-bold">Warehousing</h3> <p class="text-secondary">Secure, 24/7 inventory.</p> </div>
+        <div class="card"> <i class="fas fa-passport text-[#1A73E8] text-3xl"></i> <h3 class="font-bold">Cross-border</h3> <p class="text-secondary">Ethiopia, Somalia, Uganda.</p> </div>
+      </div>
+    </section>
+
+    <!-- 🚗 FLEET SECTION (each vehicle has data attributes for modal) -->
+    <section id="fleet" class="scroll-mt-20 fade-up">
+      <h2 class="text-3xl font-bold mb-2">Our Fleet</h2>
+      <p class="text-secondary mb-8">Modern, maintained vehicles ready for any terrain.</p>
+      
+      <!-- Utility vehicles -->
+      <h3 class="text-xl font-semibold mt-8 mb-4 flex items-center gap-2"><i class="fas fa-truck-pickup text-[#1A73E8]"></i>Utility & Safari</h3>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Hilux -->
+        <div class="fleet-card" data-vehicle='{"name":"Toyota Hilux Double Cab","image":"hilux","price":8500,"reg":"KDG 123A","make":"Toyota","model":"Hilux","year":2022,"fuel":"client","priceVAT":9520,"priceExcl":7143,"description":"Transport, off-road, logistics"}'>
+          <img src="https://placehold.co/400x200/1A73E8/white?text=Hilux" alt="Hilux" loading="lazy">
+          <div><h4 class="font-bold">Toyota Hilux Double Cab</h4><p class="text-sm">Transport, off-road, logistics</p><div class="flex justify-between"><span class="font-semibold">KSh 8,500/day</span><span class="fuel-badge">fuel: client</span></div><button class="btn-fleet">Request Hire</button></div>
+        </div>
+        <!-- HZJ76 -->
+        <div class="fleet-card" data-vehicle='{"name":"Land Cruiser HZJ76","image":"hzj76","price":12000,"reg":"KDG 456B","make":"Toyota","model":"HZJ76","year":2021,"fuel":"client","priceVAT":13440,"priceExcl":10084,"description":"Heavy duty, safari"}'>
+          <img src="https://placehold.co/400x200/34A853/white?text=HZJ76" alt="HZJ76"><div><h4 class="font-bold">Land Cruiser HZJ76</h4><p class="text-sm">Heavy duty, safari</p><div><span>KSh 12,000/day</span><span class="fuel-badge">fuel: client</span></div><button class="btn-fleet">Request Hire</button></div>
+        </div>
+        <!-- HZJ79 -->
+        <div class="fleet-card" data-vehicle='{"name":"Land Cruiser HZJ79","image":"hzj79","price":13500,"reg":"KDG 789C","make":"Toyota","model":"HZJ79","year":2020,"fuel":"negotiable","priceVAT":15120,"priceExcl":11345,"description":"Pickup, logistics"}'>
+          <img src="https://placehold.co/400x200/FBBC04/black?text=HZJ79"><div><h4 class="font-bold">Land Cruiser HZJ79</h4><p class="text-sm">Pickup, logistics</p><div><span>KSh 13,500/day</span><span class="fuel-badge">fuel negotiable</span></div><button class="btn-fleet">Request Hire</button></div>
+        </div>
+        <!-- Prado J120 -->
+        <div class="fleet-card" data-vehicle='{"name":"Prado J120","image":"j120","price":9800,"reg":"KDG 321D","make":"Toyota","model":"Prado J120","year":2019,"fuel":"client","priceVAT":10976,"priceExcl":8235,"description":"Crew carrier"}'>
+          <img src="https://placehold.co/400x200/1A73E8/white?text=Prado+J120"><div><h4 class="font-bold">Prado J120</h4><p class="text-sm">Crew carrier</p><div><span>KSh 9,800/day</span><span class="fuel-badge">client covers</span></div><button class="btn-fleet">Request Hire</button></div>
+        </div>
+      </div>
+      <!-- second row (Prado J150, J250) -->
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
+        <div class="fleet-card" data-vehicle='{"name":"Prado J150","image":"j150","price":11500,"reg":"KDG 654E","make":"Toyota","model":"Prado J150","year":2023,"fuel":"client","priceVAT":12880,"priceExcl":9664,"description":"Luxury, long distance"}'>
+          <img src="https://placehold.co/400x200/34A853/white?text=Prado+J150"><div><h4 class="font-bold">Prado J150</h4><p class="text-sm">Luxury, long distance</p><div><span>KSh 11,500/day</span><span class="fuel-badge">client</span></div><button class="btn-fleet">Request Hire</button></div>
+        </div>
+        <div class="fleet-card" data-vehicle='{"name":"Prado J250","image":"j250","price":14000,"reg":"KDG 987F","make":"Toyota","model":"Prado J250","year":2024,"fuel":"incl.","priceVAT":15680,"priceExcl":11765,"description":"Modern, executive"}'>
+          <img src="https://placehold.co/400x200/FBBC04/black?text=Prado+J250"><div><h4 class="font-bold">Prado J250 (new)</h4><p class="text-sm">Modern, executive</p><div><span>KSh 14,000/day</span><span class="fuel-badge">fuel incl.</span></div><button class="btn-fleet">Request Hire</button></div>
+        </div>
+      </div>
+      <!-- Trucks -->
+      <h3 class="text-xl font-semibold mt-12 mb-4 flex items-center gap-2"><i class="fas fa-truck text-[#1A73E8]"></i>Heavy Trucks</h3>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="fleet-card" data-vehicle='{"name":"6-wheeler truck","image":"6wheeler","price":15000,"reg":"T 001 KE","make":"Isuzu","model":"FRR","year":2021,"fuel":"client","priceVAT":16800,"priceExcl":12605,"description":"7 tons, general cargo"}'>
+          <img src="https://placehold.co/400x200/1A73E8/white?text=6-wheeler"><div><h4 class="font-bold">6-wheeler truck</h4><p class="text-sm">7 tons, general cargo</p><div><span>KSh 15,000/trip</span><span class="fuel-badge">fuel client</span></div><button class="btn-fleet">Request Hire</button></div>
+        </div>
+        <div class="fleet-card" data-vehicle='{"name":"10-wheeler truck","image":"10wheeler","price":22000,"reg":"T 002 KE","make":"Scania","model":"P340","year":2022,"fuel":"client","priceVAT":24640,"priceExcl":18487,"description":"15 tons, bulk goods"}'>
+          <img src="https://placehold.co/400x200/34A853/white?text=10-wheeler"><div><h4 class="font-bold">10-wheeler</h4><p class="text-sm">15 tons, bulk goods</p><div><span>KSh 22,000/trip</span><span class="fuel-badge">client</span></div><button class="btn-fleet">Request Hire</button></div>
+        </div>
+        <div class="fleet-card" data-vehicle='{"name":"22-wheeler truck","image":"22wheeler","price":35000,"reg":"T 003 KE","make":"Volvo","model":"FH","year":2023,"fuel":"negotiable","priceVAT":39200,"priceExcl":29412,"description":"30 tons, cross-border"}'>
+          <img src="https://placehold.co/400x200/FBBC04/black?text=22-wheeler"><div><h4 class="font-bold">22-wheeler</h4><p class="text-sm">30 tons, cross-border</p><div><span>KSh 35,000/trip</span><span class="fuel-badge">fuel negotiable</span></div><button class="btn-fleet">Request Hire</button></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tracking, Contact, Quote (minimal) -->
+    <section id="tracking" class="scroll-mt-20 fade-up">
+      <h2 class="text-3xl font-bold mb-6">Track shipment</h2>
+      <div class="card flex flex-col md:flex-row gap-4 items-end"><div class="flex-1"><label class="block text-sm">Tracking number</label><input type="text" placeholder="DEK2390KE" id="trackInput" class="w-full p-3 rounded-xl border"></div><button id="trackBtn" class="btn-primary h-fit">Track</button></div>
+      <div id="trackResult" class="mt-6 card hidden">(result)</div>
+    </section>
+
+    <section id="contact" class="scroll-mt-20 fade-up">
+      <h2 class="text-3xl font-bold mb-6">Contact</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="card space-y-4">
+          <div class="flex items-center gap-6 flex-wrap">
+            <a href="tel:+254726434503" class="flex items-center gap-2 bg-[#1A73E8]/10 px-4 py-2 rounded-full"><i class="fas fa-phone-alt text-[#1A73E8]"></i>+254 726 434 503</a>
+            <a href="https://wa.me/254726434503" target="_blank" class="flex items-center gap-2 bg-[#34A853]/10 px-4 py-2 rounded-full"><i class="fab fa-whatsapp text-[#34A853]"></i>WhatsApp</a>
+          </div>
+          <input placeholder="Name" class="w-full p-3 rounded-xl"><input placeholder="Email" class="w-full p-3 rounded-xl"><textarea placeholder="Message" rows="3" class="w-full p-3 rounded-xl"></textarea><button class="btn-primary">Send</button>
+        </div>
+        <div class="card"><div class="h-48 bg-gray-200 rounded-xl flex items-center justify-center">Map</div></div>
+      </div>
+    </section>
+
+    <section id="quote" class="scroll-mt-20 fade-up">
+      <h2 class="text-3xl font-bold mb-6">Quick quote</h2>
+      <div class="card max-w-2xl"><div class="grid grid-cols-2 gap-4"><input placeholder="Pickup" class="p-3 rounded-xl"><input placeholder="Destination" class="p-3"><select class="p-3"><option>Cargo</option></select><input placeholder="Weight" class="p-3"><input type="date" class="p-3"></div><button class="btn-primary mt-6 w-full">Get quote</button></div>
+    </section>
+  </main>
+
+  <!-- MODAL (hidden by default) - dynamic content filled via JS -->
+  <div id="hireModal" class="modal-overlay hidden">
+    <div class="modal-content bg-surface rounded-3xl max-w-2xl w-full mx-4 max-h-[90vh] overflow-y-auto">
+      <button class="modal-close absolute top-4 right-4 text-2xl">&times;</button>
+      <img id="modalImage" src="" alt="vehicle" class="w-full h-48 object-cover rounded-t-3xl">
+      <div class="p-6">
+        <h3 id="modalVehicleName" class="text-2xl font-bold"></h3>
+        <!-- pricing details -->
+        <div class="grid grid-cols-3 gap-3 my-4 p-4 bg-[#F1F3F4] dark:bg-[#3c4043] rounded-2xl">
+          <div><span class="text-xs text-secondary">Hire price</span><div class="font-bold" id="modalPrice"></div></div>
+          <div><span class="text-xs text-secondary">VAT incl.</span><div id="modalPriceVAT"></div></div>
+          <div><span class="text-xs text-secondary">VAT excl.</span><div id="modalPriceExcl"></div></div>
+        </div>
+        <!-- vehicle details -->
+        <div class="grid grid-cols-2 gap-3 mb-4 text-sm">
+          <div><span class="text-secondary">Reg No.</span> <span id="modalReg"></span></div>
+          <div><span class="text-secondary">Make</span> <span id="modalMake"></span></div>
+          <div><span class="text-secondary">Model</span> <span id="modalModel"></span></div>
+          <div><span class="text-secondary">Year</span> <span id="modalYear"></span></div>
+        </div>
+        <!-- booking form -->
+        <h4 class="font-semibold mt-4 mb-2">Booking details</h4>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <input type="text" placeholder="Full Name" id="fullName" class="p-3 rounded-xl border">
+          <input type="tel" placeholder="Phone Number" id="phoneNumber" class="p-3 rounded-xl border">
+          <input type="email" placeholder="Email Address" id="emailAddress" class="p-3 rounded-xl border md:col-span-2">
+          <input type="text" placeholder="Pickup Location" id="pickupLocation" class="p-3 rounded-xl border">
+          <input type="text" placeholder="Destination" id="destination" class="p-3 rounded-xl border">
+          <input type="date" id="hireDate" class="p-3 rounded-xl border">
+          <input type="date" id="returnDate" class="p-3 rounded-xl border">
+          <textarea placeholder="Additional Notes" id="notes" rows="2" class="p-3 rounded-xl border md:col-span-2"></textarea>
+        </div>
+        <button id="submitBooking" class="btn-primary w-full mt-6">Submit request</button>
+        <div id="bookingSuccess" class="mt-3 text-[#34A853] hidden">✓ Request sent! We'll contact you shortly.</div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="text-center text-secondary py-8 border-t mt-20">© 2025 Deks Transporter — Wajir, Kenya</footer>
+  <script src="script.js"></script>
+</body>
+</html>
